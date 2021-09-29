@@ -4,11 +4,14 @@ const PORT = 8080; // default port 8080
 
 app.set("view engine", "ejs");
 
-const urlDatabase = {
+/*const urlDatabase = {
   "b2xVn2": "http://www.lighthouselabs.ca",
   "9sm5xK": "http://www.google.com"
+};*/
+const urlDatabase = {
+  b2xVn2: { longURL: 'http://www.lighthouselabs.ca', userId: 'aJ48LW' },
+  '9sm5xK': { longURL: 'http://google.com', userId: 'aJ48LW' }
 };
-
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -47,6 +50,11 @@ app.get("/urls/new", (req, res) => {
 app.get("/urls/:shortURL", (req, res) => {
   const templateVars = { shortURL: req.params.shortURL, longURL: urlDatabase[req.params.shortURL] };
   res.render("urls_show", templateVars);
+});
+app.get('/u/:shortURL', (req, res) => {
+  const longURL = urlDatabase[req.params.shortURL]['longURL'];
+  const key = req.params.shortURL;
+  res.redirect(longURL);
 });
 app.post("/urls", (req, res) => {
   console.log(req.body);  // Log the POST request body to the console
