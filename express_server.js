@@ -17,6 +17,7 @@ app.use(
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
+/*generates TinyURL and userId*/
 const generateRandomString = function() {
   let result = '';
   const characters =
@@ -28,6 +29,7 @@ const generateRandomString = function() {
   return result;
 };
 
+/*users databasae object*/
 const users = {
   userRandomID: {
     id: 'userRandomID',
@@ -41,6 +43,7 @@ const users = {
   }
 };
 
+/*url database*/
 const urlDatabase = {
   b2xVn2: { longURL: 'http://www.lighthouselabs.ca', userId: 'aJ48LW' },
   '9sm5xK': { longURL: 'http://google.com', userId: 'aJ48LW' }
@@ -146,7 +149,7 @@ app.post('/urls/:id', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  if (!emailLookUp === req.body.email && users) {
+  if (!emailLookUp === req.body.email,users) {
     res.status(403).send('Invalid request');
   } else if (!req.body.email || !req.body.password) {
     res.redirect(403, '/login');
@@ -168,7 +171,7 @@ app.post('/logout', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-  if (emailLookUp === req.body.email) {
+  if (emailLookUp(req.body.email)) {
     res.redirect(400, '/register');
   } else if (!req.body.email) {
     res.redirect(400, '/register');

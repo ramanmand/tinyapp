@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" style= "background-color:powderblue;">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <title>TinyApp</title>
 </head>
 <body>
-  <%- include('partials/_header') %>
+        <%  include ./partials/_header %>
         <% if(user) { %>
   <main style="margin: 1em;">
     <h3>My URLs</h3>
@@ -35,7 +35,7 @@
             </td>
             <td>
                 <form method="GET" action="/urls/<%=key%>">
-                <button type="submit" value="submit" style= "background-color:powderblue;" >Edit</button></form>
+                <button type="submit" value="submit">Edit</button></form>
             </td>
               <td>
                 <form method="POST" action="/urls/<%=key%>/delete">
