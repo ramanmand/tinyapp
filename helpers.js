@@ -1,37 +1,28 @@
-const lookUpEmail = function(email,users) {
-  for (let user in users) {
-    if (users[user].email === email) {
-      return true;
-    }
-  }
-  return false;
-};
-
-const lookUpPswrd = function(password,users) {
-  for (let i in users) {
-    if (users[i].password === password) {
-      return true;
-    }
-  }
-  return false;
-};
-
-const findUserByEmail = function(email,users) {
-  for (let user in users) {
+const findUserByEmail = function (email,users) {
+  for (user in users) {
     if (users[user].email === email) {
       return users[user];
     }
   }
-  return;
+return false;
 };
-  // eslint-disable-next-line func-style
-function urlsForUser(id, urlDatabase)  {
-  let result = {};
-  for (let urls in urlDatabase) {
-    if (urlDatabase[urls].userId === id) {
-      result[urls] = urlDatabase[urls];
+
+const emailLookUp = function (email,users) {
+  for (user in users) {
+    if (users[user].email === email) {
+      return true;
     }
+  };
+  return false;
+ };
+ function urlsForUser(id, urlDatabase){
+  let result = {}
+  for (key in urlDatabase) {
+     if (urlDatabase[key].userId === id) {
+       result[key] = urlDatabase[key]
+    }   
   }
-  return result;
-}
-module.exports = { findUserByEmail, lookUpEmail, urlsForUser, lookUpPswrd };
+  return result
+};
+
+module.exports = { findUserByEmail, emailLookUp, urlsForUser };

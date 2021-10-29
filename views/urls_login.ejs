@@ -7,25 +7,22 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <title>New User - TinyApp Example</title>
+    <title>TinyApp Log-In</title>
   </head>
 
   <body>
 
     <%- include('partials/_header') %>
 
-    <main style="margin: 10em;">
-        <center><h3>User Login</h3></center>
-      <form class="form-inline" action="/login" style="  background-color: rgb(115, 152, 233);
-      color: black;
-      padding: 100px;
-      text-align: center;
-      " method="POST">
-        <div class="container-fluid">
-          
-          <div><input class="form-control" type="email" name="email" placeholder="enter an email address" style="width: 200px; margin: 1em"></div>
+    <main style="margin: 1em;">
+      <h3><strong>Login</strong></h3>
+      <form class="form-inline" action="/login" method="POST">
+        <div class="form-group mb-2">
+          <label for="email">Email address</label>
+          <input class="form-control" type="email" name="email" placeholder="example@example.com" style="width: 200px; margin: 1em">
+          <label for="email">Password</label>
           <input class="form-control" type="password" name="password" placeholder="enter a password" style="width: 200px; margin: 1em">
-          <div><button type="submit" class="btn btn-primary">Login</button></div>
+          <button type="submit" class="btn btn-primary">Log-In</button>
         </div>
       </form>
     </main>
